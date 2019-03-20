@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
     public interface IFrameChainAttemptRepository
     {

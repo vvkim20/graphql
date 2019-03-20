@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
-using Edgenuity.ContentEngine.Entities;
 using GraphQL.Conventions;
 using GraphQL.DataLoader;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GraphQLApi.Graph.Model
+namespace GraphQLApi.Graph.Types
 {
     [Description("FrameChainAttempt")]
-    public class FrameChainAttemptModel 
+    public class FrameChainAttemptGraphType 
     {
         public Guid Id { get; set; }
         public Guid CreateById { get; set; }
@@ -31,6 +30,6 @@ namespace GraphQLApi.Graph.Model
         public int DocumentId { get; set; }
         public int CurrentFrameOrder { get; set; }
 
-        public FrameAttemptModel[] Frames { get; set; }        
+        public FrameAttemptGraphType[] Frames { get; set; }        
     }
 }

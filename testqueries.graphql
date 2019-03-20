@@ -1,0 +1,120 @@
+# Simple Query
+query document{
+  apiDocuments {
+    body
+    referenceId
+    createdUser {
+      userName
+      userId
+    }
+  }
+}
+
+query apidoc{
+  apiDocument(documentId: 1){
+    documentId
+    createdUser {
+      userName
+    }
+  }
+}
+
+
+
+query docs{
+  documents{
+    documentId
+    mongoDocument{
+      documentId
+    }
+  }
+    apiDocuments{
+    
+    body
+    mongoDocument{
+      documentId
+    }
+  }
+  
+}
+
+
+
+mutation adddoc{
+  addDocument(documentBody: "TEST DOCUMENT CREATION", userName: "USERNAMEFIRST") {
+    body
+    referenceId
+    documentId
+    createdUser{
+      userId
+      userName
+    }
+  }  
+}
+
+
+# Frame with Framement
+query frame{
+  frameChainAttempts{
+    ...NameAndAppearances
+  }
+  
+  frameChainAttempt(userName: "TESTUSERNAME")
+  {
+    ...NameAndAppearances
+  }
+}
+
+fragment NameAndAppearances on FrameChainAttemptGraphType{
+  documentId
+  enrollmentKey
+  userName
+}
+
+
+
+mutation insertDoc{
+  addDocument(documentBody:"BodyTest Lol 3/19 2:00PM", userName: "Username")
+  {
+    body
+    documentId
+  }
+}
+
+query doc{
+  apiDocument(documentId: 75)
+  {
+    body
+    documentId
+    mongoDocument{
+      documentId
+      id
+    }
+  }
+}
+
+
+
+# Frame with Framement
+query frame{
+  
+  frameChainAttempt(userName: "TESTUSERNAME")
+  {
+    ...NameAndAppearances
+  }
+   apiDocument(documentId: 75)
+  {
+    body
+    documentId
+    mongoDocument{
+      documentId
+      id
+    }
+  }
+}
+
+fragment NameAndAppearances on FrameChainAttemptGraphType{
+  documentId
+  enrollmentKey
+  userName
+}

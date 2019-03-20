@@ -3,10 +3,11 @@ using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
-    public class FrameChainAttempt : MongoDbBaseObject
+    public class FrameChainAttempt
     {
+        public Guid Key { get; set; }
         [BsonId]
         public Guid Id { get; set; }
         public Guid CreateById { get; set; }

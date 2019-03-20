@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MongoDB;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
     public static class MongoDbExtension
     {
@@ -20,6 +21,7 @@ namespace Edgenuity.ContentEngine.Entities
             });
 
             services.AddSingleton<IFrameChainAttemptRepository, FrameChainAttemptRepository>();
+            services.AddSingleton<IDocumentRepository, DocumentRepository>();
             services.AddSingleton<IMongoDbContext, MongoDbContext>();
             return services;
         }

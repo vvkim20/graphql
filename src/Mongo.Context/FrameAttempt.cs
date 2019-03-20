@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using MongoDB;
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
-    public class FrameAttempt : MongoDbBaseObject
+    public class FrameAttempt 
     {
         public Guid FrameProgressID { get; set; }
         public int Status { get; set; }
@@ -13,8 +14,6 @@ namespace Edgenuity.ContentEngine.Entities
         public string Captions { get; set; }
         public DateTime? TimeStarted { get; set; }
 
-        [MongoDB.Bson.Serialization.Attributes.BsonDefaultValue(0.00)]
-        [MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfNull]
         public double TimeElapsed { get; set; }
 
         public List<StackAttempt> Stacks { get; set; }

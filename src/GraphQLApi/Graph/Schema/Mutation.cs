@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Edgenuity.ContentEngine.Entities;
 using Entity;
 using GraphQL.Conventions;
-using GraphQLApi.Graph.Model;
+using GraphQLApi.Graph.Types;
+using Edgenuity.MongoDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +14,22 @@ namespace GraphQLApi.Graph.Schema
     internal sealed class Mutation
     {
         [Description ("Add FrameChainAttempt")]
-        public async Task<FrameChainAttemptModel> AddFrameChainAttempt([Inject]IFrameChainAttemptRepository frameChainAttemptRepository, [Description("User Name")] NonNull<string> userName)
+        public FrameChainAttemptGraphType AddFrameChainAttempt([Inject]IFrameChainAttemptRepository frameChainAttemptRepository, [Description("User Name")] NonNull<string> userName)
         {
             //var doc = await documentRepo.CreateDocument(documentBody, userName);
             //frameChainAttemptRepository.AddFrameChainAttempt();
-            return Mapper.Map<FrameChainAttemptModel>(frameChainAttemptRepository.AddFrameChainAttempt(userName));
+            return Mapper.Map<FrameChainAttemptGraphType>(frameChainAttemptRepository.AddFrameChainAttempt(userName));
         }
 
         [Description("Add Document")]
-        public async Task<DocumentModel> AddDocument([Inject] IDocumentRepo documentRepo, 
+        public async Task<DocumentGraphType> AddDocument([Inject] IDocumentRepo documentRepo, 
+                                                     [Inject] IDocumentRepository mongoDocRepo,
                                                      [Description("Body")] NonNull<string> documentBody,
                                                      [Description("UserName")] NonNull<string> userName)
         {
-            var doc = await documentRepo.CreateDocument(documentBody, userName);            
-            return Mapper.Map<DocumentModel>(doc);
+            var doc = await documentRepo.CreateDocument(documentBody, userName);
+            mongoDocRepo.AddDocument(doc.DocumentId.ToString());
+            return Mapper.Map<DocumentGraphType>(doc);
         }
     }
 }

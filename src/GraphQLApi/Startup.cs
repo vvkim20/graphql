@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AutoMapper;
-using Edgenuity.ContentEngine.Entities;
-using GraphQLApi.Graph.Model;
+using GraphQLApi.Graph.Types;
 using GraphQL.Conventions;
 using Schema = GraphQLApi.Graph.Schema;
 using GraphQLApi.Graph;
@@ -14,6 +13,7 @@ using GraphQL.DataLoader;
 using Entity;
 using Microsoft.EntityFrameworkCore;
 using GraphQLApi.Resp;
+using Edgenuity.MongoDB;
 
 namespace GraphQLApi
 {
@@ -52,11 +52,12 @@ namespace GraphQLApi
 
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<FrameChainAttempt, FrameChainAttemptModel>();
-                cfg.CreateMap<FrameAttempt, FrameAttemptModel>();
-                cfg.CreateMap<StackAttempt, StackAttemptModel>();
-                cfg.CreateMap<Document, DocumentModel>();
-                cfg.CreateMap<User, UserModel>();
+                cfg.CreateMap<Edgenuity.MongoDB.FrameChainAttempt, FrameChainAttemptGraphType>();
+                cfg.CreateMap<Edgenuity.MongoDB.FrameAttempt, FrameAttemptGraphType>();
+                cfg.CreateMap<Edgenuity.MongoDB.StackAttempt, StackAttemptGraphType>();
+                cfg.CreateMap<Entity.Document, DocumentGraphType>();
+                cfg.CreateMap<User, UserGraphType>();
+                cfg.CreateMap<Edgenuity.MongoDB.Document, MongoDocumentGraphType>();
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

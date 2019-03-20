@@ -1,11 +1,11 @@
 ﻿using GraphQL.Conventions;
 using System;
 
-namespace GraphQLApi.Graph.Model
+namespace GraphQLApi.Graph.Types
 {
 
     [Description("FrameAttempt")]
-    public class FrameAttemptModel
+    public class FrameAttemptGraphType
     {
         public Guid FrameProgressID { get; set; }
         public int Status { get; set; }

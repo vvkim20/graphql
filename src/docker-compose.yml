@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  graphql:
+    build: ./
+    ports:
+      - "56014:80"
+      - "44397:443"
+    volumes: 
+      - ./GraphQLApi/
+    depends_on: 
+      - sqlserver
+      - mongodb
+    links: 
+      - mongodb
+      - sqlserver
+    environment: 
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNET CORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44397
+      - NUGET_PACKAGES=/root /.nuget/fallbackpackages2
+  # sqlapi:
+  #   build: ./SqlApi
+  #   ports:
+  #     - "5010:5010"
+    # volumes: 
+    #   - ./SqlApi/:/app
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports: 
+      - "2019:1433"
+    command: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourStrong!Passw0rd>' -Q 'ALTER LOGIN SA WITH PASSWORD="<YourNewStrong!Passw0rd>"'
+    environment: 
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=<your_strong_password>
+      - MSSQL_PID=Developer
+
+  mongodb:
+    image: mongo:4.0.6
+    hostname: mongodb
+    command: mongod --smallfiles
+    volumes: 
+      - "/data/configdb"
+      - "/data/db"
+    ports:
+      - "27017:27017"
+

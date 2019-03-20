@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
-    public class StackAttempt : MongoDbBaseObject
+    public class StackAttempt 
     {
         public Guid StackProgressID;
         public int Order = 0;

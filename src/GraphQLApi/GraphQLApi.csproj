@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mongo.Context\Mongo.Context.csproj" />
-    <ProjectReference Include="..\SQL.Entity\Entity.csproj" />
+    <ProjectReference Include="..\Mongo.Context\Edgenuity.MongoDB.csproj" />
+    <ProjectReference Include="..\SQL.Entity\Edgenuity.SqlDB.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphQLApi.Graph.Model
+namespace GraphQLApi.Graph.Types
 {
-    public class StackAttemptModel
+    public class StackAttemptGraphType
     {
         public Guid StackProgressID { get; set; }
         public int Order { get; set; }

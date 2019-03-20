@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphQLApi.Graph.Model
+namespace GraphQLApi.Graph.Types
 {
-    public class UserModel
+    public class UserGraphType
     {
         public int UserId { get; set; }
         public string UserName { get; set; }        

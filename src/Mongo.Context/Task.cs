@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Edgenuity.ContentEngine.Entities
+namespace Edgenuity.MongoDB
 {
-    public class Task : MongoDbBaseObject
+    public class Task 
     {
         public Guid Guid { get; set; }
         public bool IsQuestion { get; set; }

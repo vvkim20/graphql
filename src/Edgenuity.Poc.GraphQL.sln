@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "SQL.Entity\Entity.csproj", "{5E760ED5-2C7B-4345-AF52-E679E67BC9B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edgenuity.SqlDB", "SQL.Entity\Edgenuity.SqlDB.csproj", "{5E760ED5-2C7B-4345-AF52-E679E67BC9B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQLApi", "GraphQLApi\GraphQLApi.csproj", "{F1D18EB5-DE83-4D54-926A-B7BCFC684348}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mongo.Context", "Mongo.Context\Mongo.Context.csproj", "{8A16099E-5052-4D02-BF77-C218531AAAD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edgenuity.MongoDB", "Mongo.Context\Edgenuity.MongoDB.csproj", "{8A16099E-5052-4D02-BF77-C218531AAAD2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlApi", "SqlApi\SqlApi.csproj", "{23D8078C-0BDD-42D9-9DB5-18D800DDF887}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A0EAADD1-1FCF-4A23-B7BC-C178DBC9E8DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{23D8078C-0BDD-42D9-9DB5-18D800DDF887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D8078C-0BDD-42D9-9DB5-18D800DDF887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D8078C-0BDD-42D9-9DB5-18D800DDF887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0EAADD1-1FCF-4A23-B7BC-C178DBC9E8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EAADD1-1FCF-4A23-B7BC-C178DBC9E8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EAADD1-1FCF-4A23-B7BC-C178DBC9E8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EAADD1-1FCF-4A23-B7BC-C178DBC9E8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
